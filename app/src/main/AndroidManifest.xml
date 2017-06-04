@@ -26,7 +26,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.HomeActivity" />
-        <activity android:name=".activity.ItemsActivity"></activity>
+        <activity android:name=".activity.ItemsActivity" />
+        <activity android:name=".activity.ItemFocusActivity"></activity>
     </application>
 
 </manifest>
