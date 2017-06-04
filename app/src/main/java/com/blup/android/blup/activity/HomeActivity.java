@@ -15,10 +15,10 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        final RecyclerView homeList = (RecyclerView) findViewById(R.id.home_card_list);
+        final RecyclerView homeView = (RecyclerView) findViewById(R.id.home_card_list);
 
-        homeList.setLayoutManager(new LinearLayoutManager(this));
-        homeList.setAdapter(new MyAdapter());
+        homeView.setLayoutManager(new LinearLayoutManager(this));
+        homeView.setAdapter(new MyAdapter());
 
 
 

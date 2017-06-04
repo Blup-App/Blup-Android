@@ -57,8 +57,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
        public MyViewHolder(final View itemView) {
            super(itemView);
 
-           name = ((TextView) itemView.findViewById(R.id.name));
-           description = ((TextView) itemView.findViewById(R.id.description));
+           name = ((TextView) itemView.findViewById(R.id.title));
+           description = ((TextView) itemView.findViewById(R.id.date));
 
            itemView.setOnClickListener(new View.OnClickListener() {
                @Override
