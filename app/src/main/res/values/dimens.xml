@@ -5,4 +5,8 @@
 
 
     <dimen name="itemFocusGridImgSize">31dp</dimen>
+    <dimen name="itemCreateGridImgSize">25dp</dimen>
+    <dimen name="itemCreateGridItemHeight">53dp</dimen>
+
+    <dimen name="paddedTextMargin">18dp</dimen>
 </resources>

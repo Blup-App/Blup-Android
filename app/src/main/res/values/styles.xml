@@ -17,13 +17,22 @@
         <item name="android:textColor">@android:color/black</item>
     </style>
 
+    <style name="sectionBodyTextPadded" parent="sectionBodyText">
+        <item name="android:background">@color/paddedBodyTextColor</item>
+        <item name="android:paddingTop">14dp</item>
+        <item name="android:paddingBottom">14dp</item>
+        <item name="android:paddingLeft">@dimen/paddedTextMargin</item>
+        <item name="android:paddingRight">@dimen/paddedTextMargin</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+    </style>
+
 
     <style name="sectionTitle">
         <item name="android:textStyle">bold</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textSize">11sp</item>
         <item name="android:textColor">@color/sectionTitleColor</item>
-        <item name="android:layout_marginBottom">3dp</item>
+        <item name="android:layout_marginBottom">6dp</item>
     </style>
     
     
@@ -63,6 +72,10 @@
 
     <style name="itemFocusGridItemUsername">
         <item name="android:textSize">9sp</item>
+        <item name="android:textColor">#000</item>
+    </style>
+   <style name="itemCreateGridItemUsername">
+        <item name="android:textSize">14sp</item>
         <item name="android:textColor">#000</item>
     </style>
 

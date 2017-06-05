@@ -9,4 +9,5 @@
 
     <!-- typo colors -->
     <color name="sectionTitleColor">#B1B1B1</color>
+    <color name="paddedBodyTextColor">#f8f8f8</color>
 </resources>

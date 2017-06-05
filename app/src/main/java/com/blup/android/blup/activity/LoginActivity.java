@@ -72,7 +72,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         setContentView(R.layout.activity_login);
 
 
-        Intent i = new Intent(LoginActivity.this, ItemFocusActivity.class);
+        Intent i = new Intent(LoginActivity.this, ItemCreateActivity.class);
         startActivity(i);
 
 

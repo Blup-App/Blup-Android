@@ -1,0 +1,205 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    >
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="photo"
+        android:layout_marginTop="19dp"
+        android:layout_marginLeft="@dimen/paddedTextMargin"
+        style="@style/sectionTitle" />
+
+
+    <LinearLayout
+        android:id="@+id/item_create_picture_btn"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:background="@color/electricBlue"
+        android:layout_marginBottom="20dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+            
+            
+            <ImageView
+                android:layout_width="31dp"
+                android:layout_height="25dp"
+                android:background="#8b8b8b"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="prendre une photo"
+                android:layout_marginTop="6dp"
+                android:textColor="#8b8b8b"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TITRE DE L’OBJET"
+        android:layout_marginLeft="@dimen/paddedTextMargin"
+        style="@style/sectionTitle" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/sectionBodyTextPadded"
+        android:text="Cahier Moleskine de James White"
+        android:textSize="16sp"
+        />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:rowCount="1"
+        android:columnCount="2">
+
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="6dp"
+            android:layout_columnWeight=".5" >
+
+            <TextView
+                android:id="@+id/item_create_grid_borrower_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="emprunteyr"
+                android:layout_marginLeft="@dimen/paddedTextMargin"
+                style="@style/sectionTitle"
+                android:layout_alignParentTop="true"
+                />
+
+
+
+            <LinearLayout
+                android:layout_below="@id/item_create_grid_borrower_label"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/itemCreateGridItemHeight"
+                style="@style/itemFocusGridItem"
+                android:background="@color/paddedBodyTextColor" >
+
+
+
+            <ImageView
+                android:id="@+id/item_focus_borrower_img"
+                android:layout_width="@dimen/itemCreateGridImgSize"
+                android:layout_height="@dimen/itemCreateGridImgSize"
+                android:background="@color/electricBlue"
+                style="@style/itemFocusGridItemImg" />
+
+
+
+            <TextView
+                android:id="@+id/item_focus_borrower_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/itemCreateGridItemUsername"
+                android:text="\@Nvyie"
+                android:layout_centerInParent="true" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="6dp"
+            android:layout_columnWeight=".5" >
+
+            <TextView
+                android:id="@+id/item_create_grid_section_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="date de rendu"
+                style="@style/sectionTitle"
+                android:layout_alignParentTop="true"
+                />
+
+
+
+            <LinearLayout
+                android:layout_below="@id/item_create_grid_section_label"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/itemCreateGridItemHeight"
+                style="@style/itemFocusGridItem"
+                android:orientation="vertical"
+                android:background="@color/paddedBodyTextColor"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                >
+
+
+            <TextView
+                android:id="@+id/item_create_date_timeleft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/itemCreateGridItemUsername"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:text="1 semaine"
+                android:layout_centerInParent="true" />
+
+            <TextView
+                android:id="@+id/item_create_date_period"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/itemCreateGridItemUsername"
+                android:textSize="11sp"
+                android:text="27/05 - 03/06"
+                android:layout_centerInParent="true" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </GridLayout>
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="notes"
+        android:layout_marginLeft="@dimen/paddedTextMargin"
+        style="@style/sectionTitle"
+        />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/sectionBodyTextPadded"
+        android:text="Cahier de James White en personne ! J’ai prêté à Margaret pour son prochain film mais il faudrait qu’elle me le rende la semaine prochaine pour mon prochain séminaire"
+        />
+</LinearLayout>
