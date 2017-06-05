@@ -32,5 +32,5 @@ public class ItemCreateActivity extends AppCompatActivity {
     }
 
 
-    
+
 }

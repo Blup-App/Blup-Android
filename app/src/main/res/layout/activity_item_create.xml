@@ -202,4 +202,22 @@
         style="@style/sectionBodyTextPadded"
         android:text="Cahier de James White en personne ! J’ai prêté à Margaret pour son prochain film mais il faudrait qu’elle me le rende la semaine prochaine pour mon prochain séminaire"
         />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Confirmer le Blüp avec Margaret "
+            style="@style/itemCreateMainBtn"
+            />
+
+    </LinearLayout>
+
 </LinearLayout>
