@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:background="@android:color/white"
     android:layout_margin="10dp">
 
     
@@ -18,15 +19,131 @@
 
 
         <Button
+            android:layout_margin="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="rendu ?"
             android:textColor="@android:color/white"
             android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            />
+            android:layout_alignParentBottom="true" />
 
     </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/item_focus_progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="1dp"
+        android:layout_marginTop="13dp"
+        android:background="@color/electricBlue"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:padding="8dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@android:color/white"
+            >
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="true"
+                style="@style/itemFocusProgressBarText"
+                android:textColor="@color/electricBlue"
+                android:text="RENDRE DANS" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/electricBlue"
+                style="@style/itemFocusProgressBarTextDays"
+                android:text="12" />
+            <TextView
+                android:layout_width="wrap_content"
+                style="@style/itemFocusProgressBarText"
+                android:textAllCaps="true"
+                android:textColor="@color/electricBlue"
+                android:layout_height="wrap_content"
+                android:text="jours" />
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                style="@style/itemFocusProgressBarText"
+                android:textColor="@color/electricBlue"
+                android:layout_height="wrap_content"
+                android:text="Du 10/05 au 09/06"
+                android:gravity="right"
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="128dp"
+            android:padding="8dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/electricBlue"
+            >
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="true"
+                style="@style/itemFocusProgressBarText"
+                android:textColor="@android:color/white"
+
+                android:text="RENDRE DANS" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                style="@style/itemFocusProgressBarTextDays"
+                android:text="12" />
+            <TextView
+                android:layout_width="wrap_content"
+                style="@style/itemFocusProgressBarText"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:layout_height="wrap_content"
+                android:text="jours" />
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                style="@style/itemFocusProgressBarText"
+                android:textColor="@android:color/white"
+                android:layout_height="wrap_content"
+                android:text="Du 10/05 au 09/06"
+                android:gravity="right"
+                />
+
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="On Planets — Cure"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="14dp"
+        />
+
 
 
     <GridLayout
@@ -34,26 +151,117 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:rowCount="1"
+        android:padding="1dp"
+        android:layout_marginBottom="20dp"
+        android:background="#DFDFDF"
         android:columnCount="2">
 
 
-        <TextView
+        <RelativeLayout
             android:layout_width="0dp"
-            android:layout_columnWeight=".5"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="hey"/>
-        <TextView
+            android:background="@android:color/white"
+            android:text="hey"
+            style="@style/itemFocusGridItem"
+            >
+
+            <ImageView
+                android:id="@+id/item_focus_lender_img"
+                android:layout_width="@dimen/itemFocusGridImgSize"
+                android:layout_height="@dimen/itemFocusGridImgSize"
+                android:background="@color/electricBlue"
+                style="@style/itemFocusGridItemImg"
+                />
+
+
+            <TextView
+                android:id="@+id/item_focus_lender_label"
+                android:layout_toRightOf="@id/item_focus_lender_img"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                style="@style/itemFocusGridItemLabel"
+                android:textColor="@color/electricBlue"
+
+                android:text="Prêteur"
+                />
+
+
+            <TextView
+                android:id="@+id/item_focus_lender_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/itemFocusGridItemUsername"
+                android:text="\@Nvyie"
+                android:layout_toRightOf="@id/item_focus_lender_img"
+                android:layout_below="@id/item_focus_lender_label"
+                />
+
+
+        </RelativeLayout>
+        <RelativeLayout
             android:layout_width="0dp"
-            android:gravity="center"
-            android:layout_columnWeight=".5"
-            android:text="hey"/>
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:text="hey"
+            style="@style/itemFocusGridItem"
+            >
+
+            <ImageView
+                android:id="@+id/item_focus_borrower_img"
+                android:layout_width="@dimen/itemFocusGridImgSize"
+                android:layout_height="@dimen/itemFocusGridImgSize"
+                android:background="@color/orange"
+                style="@style/itemFocusGridItemImg"
+                />
+
+
+            <TextView
+                android:id="@+id/item_focus_borrower_label"
+                android:layout_toRightOf="@id/item_focus_borrower_img"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                style="@style/itemFocusGridItemLabel"
+                android:textColor="@color/orange"
+
+                android:text="Prêteur"
+                />
+
+
+            <TextView
+                android:id="@+id/item_focus_borrower_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/itemFocusGridItemUsername"
+                android:text="\@Nvyie"
+                android:layout_toRightOf="@id/item_focus_borrower_img"
+                android:layout_below="@id/item_focus_borrower_label"
+                />
+
+
+        </RelativeLayout>
+
 
     </GridLayout>
 
 
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="notes"
+        style="@style/sectionTitle" />
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="J’ai prêté l’album dans un état quasi parfait. Le disque ne possède pas de rayure. On s’est fixé avec Shahrukh une caution de 35€ au cas-où il y aurait des dommages."
+        style="@style/sectionBodyText"
+        />
     
 
 
