@@ -40,6 +40,7 @@ import android.widget.TextView;
 
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.blup.android.blup.R;
+import com.blup.android.blup.Session;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -160,6 +161,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * If there are form errors (invalid email, missing fields, etc.), the
      * errors are presented and no actual login attempt is made.
      */
+    private Session session;
     private void attemptLogin() {
         if (mAuthTask != null) {
             return;
@@ -208,7 +210,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             RequestQueue queue;
             queue = Volley.newRequestQueue(this);
 
-            JsonObjectRequest json = new JsonObjectRequest(Request.Method.GET, "http://10.31.1.60:8888/api/users", null,
+            JsonObjectRequest json = new JsonObjectRequest(Request.Method.GET, "http://192.168.1.38:8888/api/users", null,
                     new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
@@ -220,8 +222,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                                     JSONObject user = jsonArray.getJSONObject(i);
                                     String usermail = user.getString("mail");
                                     String userpassword = user.getString("password");
+                                    String username = user.getString("name");
                                     if(usermail.equalsIgnoreCase(email) && userpassword.equalsIgnoreCase(password))
                                     {
+                                        session = new Session(getApplicationContext());
+                                        session.setusername(username);
                                         Intent in = new Intent(LoginActivity.this, HomeActivity.class);
                                         startActivity(in);
                                     }
