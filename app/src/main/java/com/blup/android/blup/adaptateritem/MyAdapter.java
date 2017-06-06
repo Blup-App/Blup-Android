@@ -2,6 +2,8 @@ package com.blup.android.blup.adaptateritem;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Pair;
 import android.view.LayoutInflater;
@@ -9,14 +11,74 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.blup.android.blup.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
-   private final List<Pair<String, String>> characters = Arrays.asList(
+    private String userId;
+
+    private List ItemsList;
+
+    private List buildList() {
+        List list;
+
+        JsonObjectRequest json = new JsonObjectRequest(Request.Method.GET, "http://192.168.1.20:8000/api/items", null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        JSONArray jsonArray = null;
+                        try {
+                            jsonArray = response.getJSONArray("hydra:member");
+                            //foreach
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject item = jsonArray.getJSONObject(i);
+                                String itemOwerId = item.getString("ownerId");
+                                if(itemOwerId.equalsIgnoreCase(userId) )
+                                {
+                                    ItemsList.add(item);
+                                }
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        return ItemsList;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public MyAdapter setUserId(String userId) {
+        this.userId = userId;
+        this.buildList();
+
+        return this;
+    }
+
+
+
+    private final List<Pair<String, String>> characters = Arrays.asList(
            Pair.create("Lyra Belacqua", "Brave, curious, and crafty, she has been prophesied by the witches to help the balance of life"),
            Pair.create("Pantalaimon", "Lyra's daemon, nicknamed Pan."),
            Pair.create("Roger Parslow", "Lyra's friends"),
@@ -28,6 +90,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
            Pair.create("Ma Costa", "Gyptian woman whose son, Billy Costa is abducted by the \"Gobblers\"."),
            Pair.create("John Faa", "The King of all gyptian people.")
    );
+
+
 
    @Override
    public int getItemCount() {
@@ -47,7 +111,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
        holder.display(pair);
    }
 
-   public class MyViewHolder extends RecyclerView.ViewHolder {
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
 
        private final TextView name;
        private final TextView description;

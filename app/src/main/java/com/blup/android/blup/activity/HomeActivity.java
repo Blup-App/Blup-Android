@@ -1,5 +1,6 @@
 package com.blup.android.blup.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,8 +18,13 @@ public class HomeActivity extends AppCompatActivity {
 
         final RecyclerView homeView = (RecyclerView) findViewById(R.id.home_card_list);
 
+        Intent intent = getIntent();
+        String userId = intent.getStringExtra("user_id");
+
+        MyAdapter adapter = new MyAdapter().setUserId(userId);
+
         homeView.setLayoutManager(new LinearLayoutManager(this));
-        homeView.setAdapter(new MyAdapter());
+        homeView.setAdapter(adapter);
 
 
 
