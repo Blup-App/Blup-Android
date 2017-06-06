@@ -170,8 +170,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mPasswordView.setError(null);
 
         // Store values at the time of the login attempt.
-        String email = mEmailView.getText().toString();
-        String password = mPasswordView.getText().toString();
+        final String email = mEmailView.getText().toString();
+        final String password = mPasswordView.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
@@ -203,6 +203,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             // perform the user login attempt.
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
+
+
             RequestQueue queue;
             queue = Volley.newRequestQueue(this);
             JsonObjectRequest json = new JsonObjectRequest(Request.Method.GET, "http://10.31.1.60:8888/api/users", null,
@@ -212,7 +214,18 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                             JSONArray jsonArray = null;
                             try {
                                 jsonArray = response.getJSONArray("hydra:member");
-                                //foreach 
+                                //foreach
+                                for (int i = 0; i < jsonArray.length(); i++) {
+                                    JSONObject user = jsonArray.getJSONObject(i);
+                                    String usermail = user.getString("mail");
+                                    String userpassword = user.getString("password");
+                                    if(email == usermail && password == userpassword)
+                                    {
+                                        Intent in = new Intent(LoginActivity.this, ItemsActivity.class);
+                                        startActivity(in);
+                                    }
+
+                                }
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -224,10 +237,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 }
             });
             queue.add(json);
-           // mAuthTask.execute((Void) null);
 
-            Intent i = new Intent(LoginActivity.this, ItemsActivity.class);
-            startActivity(i);
+            mEmailView.setError("bite pas connectée");
+            focusView = mEmailView;
+            focusView.requestFocus();
+
+            // mAuthTask.execute((Void) null);
+
+
         }
     }
 
