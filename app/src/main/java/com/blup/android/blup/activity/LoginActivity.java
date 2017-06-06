@@ -71,11 +71,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
-        Intent i = new Intent(LoginActivity.this, ItemCreateActivity.class);
-        startActivity(i);
-
-
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
@@ -86,10 +81,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
                 if (id == R.id.login || id == EditorInfo.IME_NULL) {
                     attemptLogin();
-                    Log.d("LoginActivity", "dlzpaldpaz");
                     return true;
                 }
-                Log.d("LoginActivity", "dlzpaldpaz");
                 return false;
             }
         });
