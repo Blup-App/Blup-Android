@@ -207,6 +207,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             RequestQueue queue;
             queue = Volley.newRequestQueue(this);
+
             JsonObjectRequest json = new JsonObjectRequest(Request.Method.GET, "http://10.31.1.60:8888/api/users", null,
                     new Response.Listener<JSONObject>() {
                         @Override
@@ -219,9 +220,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                                     JSONObject user = jsonArray.getJSONObject(i);
                                     String usermail = user.getString("mail");
                                     String userpassword = user.getString("password");
-                                    if(email == usermail && password == userpassword)
+                                    if(usermail.equalsIgnoreCase(email) && userpassword.equalsIgnoreCase(password))
                                     {
-                                        Intent in = new Intent(LoginActivity.this, ItemsActivity.class);
+                                        Intent in = new Intent(LoginActivity.this, HomeActivity.class);
                                         startActivity(in);
                                     }
 
@@ -237,6 +238,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 }
             });
             queue.add(json);
+
 
             mEmailView.setError("bite pas connectée");
             focusView = mEmailView;
