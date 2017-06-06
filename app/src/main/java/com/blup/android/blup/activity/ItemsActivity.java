@@ -29,7 +29,7 @@ public class ItemsActivity extends AppCompatActivity {
         itemsView = (TextView) findViewById(R.id.itemsView);
         queue = Volley.newRequestQueue(this);
 
-        final JsonObjectRequest json = new JsonObjectRequest(Request.Method.GET, "http://192.168.1.15:8888/api/items", null,
+        final JsonObjectRequest json = new JsonObjectRequest(Request.Method.GET, "http://192.168.1.38:8888/api/items", null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
