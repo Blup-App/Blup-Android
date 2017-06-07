@@ -18,6 +18,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.blup.android.blup.R;
+import com.blup.android.blup.activity.HomeActivity;
+import com.blup.android.blup.activity.ItemFocusActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -106,10 +108,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
            itemView.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View view) {
-               //    new AlertDialog.Builder(itemView.getContext())
-                 //          .setTitle(currentPair.first)
-                   //        .setMessage(currentPair.second)
-                     //      .show();
+                    Intent intent = new Intent(view.getContext(), ItemFocusActivity.class);
+                   view.getContext().startActivity(intent);
                }
            });
        }
