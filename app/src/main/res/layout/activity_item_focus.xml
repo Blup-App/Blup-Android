@@ -41,6 +41,7 @@
         >
 
         <LinearLayout
+            android:id="@+id/login_progress_bar_1"
             android:layout_width="match_parent"
             android:padding="8dp"
             android:layout_height="wrap_content"
@@ -50,7 +51,6 @@
 
 
             <TextView
-                android:id="@+id/item_days_left_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAllCaps="true"
@@ -58,6 +58,7 @@
                 android:textColor="@color/electricBlue"
                 android:text="RENDRE DANS" />
             <TextView
+                android:id="@+id/item_days_left_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/electricBlue"
@@ -86,7 +87,8 @@
 
         </LinearLayout>
         <LinearLayout
-            android:layout_width="128dp"
+            android:id="@+id/login_progress_bar_2"
+            android:layout_width="700dp"
             android:padding="8dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"

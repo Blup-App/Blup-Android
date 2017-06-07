@@ -1,10 +1,13 @@
 package com.blup.android.blup.activity;
 
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -76,12 +79,30 @@ public class ItemFocusActivity extends AppCompatActivity {
                             Date returnDate = df.parse(returnDateStr, new ParsePosition(0));
                             Date now = new Date();
 
-                            long diff = returnDate.getTime() - now.getTime();
-                            String days = Long.toString(TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS));
+                            long remaining = returnDate.getTime() - now.getTime();
+                            long diff = returnDate.getTime() - lendDate.getTime();
+
+                            long percentage = (remaining * 100) / diff;
+
+                            View progressBar1 = findViewById(R.id.login_progress_bar_1);
+                            View progressBar2 = findViewById(R.id.login_progress_bar_2);
+
+                            String days = Long.toString(TimeUnit.DAYS.convert(remaining, TimeUnit.MILLISECONDS));
+
+                            int width = progressBar1.getWidth();
+                            long progressWidth = (percentage) * (width / 100);
+
+                            ViewGroup.LayoutParams params = progressBar2.getLayoutParams();
+                            params.width = (int) (progressWidth) + 20;
+                            params.height = progressBar1.getHeight();
+
+                            progressBar2.setLayoutParams(params);
 
                             daysLeft1.setText(days);
                             daysLeft2.setText(days);
-                            
+
+
+                            if((int) (progressWidth + 0) != 0){}
 
                         } catch (JSONException e) {
                             e.printStackTrace();
