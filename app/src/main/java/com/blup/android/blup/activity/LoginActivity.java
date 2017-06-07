@@ -209,7 +209,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             RequestQueue queue;
             queue = Volley.newRequestQueue(this);
 
-            JsonObjectRequest json = new JsonObjectRequest(Request.Method.GET, "http://192.168.1.38:8888/api/users", null,
+            JsonObjectRequest json = new JsonObjectRequest(Request.Method.GET, "http://10.31.1.60:8888/api/users", null,
                     new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
@@ -222,6 +222,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                                     String usermail = user.getString("mail");
                                     String userpassword = user.getString("password");
                                     String username = user.getString("name");
+                                    String userid = user.getString("id");
                                     if(usermail.equalsIgnoreCase(email) && userpassword.equalsIgnoreCase(password))
                                     {
                                         Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
@@ -229,6 +230,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                                         
                                         session = new Session(getApplicationContext());
                                         session.setusername(username);
+                                        session.setuserid(userid);
                                         
                                         startActivity(intent);
                                         return;

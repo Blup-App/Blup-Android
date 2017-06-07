@@ -24,4 +24,13 @@ public class Session {
         String username = prefs.getString("username","");
         return username;
     }
+
+    public void setuserid(String userid) {
+        prefs.edit().putString("userid", userid).commit();
+    }
+
+    public String getuserid() {
+        String userid = prefs.getString("userid","");
+        return userid;
+    }
 }
