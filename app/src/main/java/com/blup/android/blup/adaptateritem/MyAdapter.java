@@ -30,40 +30,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     private String userId;
 
-    private List ItemsList;
-
-    private List buildList() {
-        List list;
-
-        JsonObjectRequest json = new JsonObjectRequest(Request.Method.GET, "http://192.168.1.20:8000/api/items", null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        JSONArray jsonArray = null;
-                        try {
-                            jsonArray = response.getJSONArray("hydra:member");
-                            //foreach
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject item = jsonArray.getJSONObject(i);
-                                String itemOwerId = item.getString("ownerId");
-                                if(itemOwerId.equalsIgnoreCase(userId) )
-                                {
-                                    ItemsList.add(item);
-                                }
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-            }
-        });
-
-        return ItemsList;
+    public List getItemsList() {
+        return itemsList;
     }
+
+    public MyAdapter setItemsList(List itemsList) {
+        this.itemsList = itemsList;
+
+        return this;
+    }
+
+    private List itemsList;
 
     public String getUserId() {
         return userId;
@@ -71,7 +48,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     public MyAdapter setUserId(String userId) {
         this.userId = userId;
-        this.buildList();
 
         return this;
     }
