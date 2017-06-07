@@ -13,6 +13,7 @@
         android:layout_height="173dp">
 
         <ImageView
+            android:id="@+id/item_preview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/background_dark"/>
@@ -49,6 +50,7 @@
 
 
             <TextView
+                android:id="@+id/item_days_left_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAllCaps="true"
@@ -71,6 +73,7 @@
 
 
             <TextView
+                android:id="@+id/item_dates_1"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 style="@style/itemFocusProgressBarText"
@@ -100,6 +103,7 @@
 
                 android:text="RENDRE DANS" />
             <TextView
+                android:id="@+id/item_days_left_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/white"
@@ -115,6 +119,7 @@
 
 
             <TextView
+                android:id="@+id/item_dates_2"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 style="@style/itemFocusProgressBarText"
@@ -258,6 +263,7 @@
 
 
     <TextView
+        android:id="@+id/item_note"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="J’ai prêté l’album dans un état quasi parfait. Le disque ne possède pas de rayure. On s’est fixé avec Shahrukh une caution de 35€ au cas-où il y aurait des dommages."
