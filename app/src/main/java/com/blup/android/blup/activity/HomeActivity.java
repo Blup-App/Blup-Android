@@ -68,6 +68,15 @@ public class HomeActivity extends AppCompatActivity {
                                 }
 
                             }
+
+                            MyAdapter adapter = new MyAdapter()
+                                    .setUserId(userId)
+                                    .setItemsList(itemsList)
+                                    ;
+
+                            homeView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                            homeView.setAdapter(adapter);
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -79,11 +88,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
         queue.add(json);
-
-        MyAdapter adapter = new MyAdapter().setUserId(userId);
-
-        homeView.setLayoutManager(new LinearLayoutManager(this));
-        homeView.setAdapter(adapter);
 
 
     }
