@@ -18,6 +18,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.blup.android.blup.R;
 import com.blup.android.blup.adaptateritem.MyAdapter;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -67,6 +68,8 @@ public class ItemFocusActivity extends AppCompatActivity {
                         try {
                             title.setText(response.getString("title"));
                             note.setText(response.getString("note"));
+                            Picasso.with(getApplicationContext()).load(response.getString("img")).into(preview);
+
 
                             DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
 

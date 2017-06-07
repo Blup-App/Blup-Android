@@ -1,6 +1,7 @@
 package com.blup.android.blup.adaptateritem;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import com.blup.android.blup.R;
 import com.blup.android.blup.activity.HomeActivity;
 import com.blup.android.blup.activity.ItemFocusActivity;
+import com.squareup.picasso.Picasso;
 
 
 import org.json.JSONException;
@@ -69,6 +71,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
        try {
            JSONObject item = new JSONObject(pair.toString());
            holder.setCurrentItemId(item.getString("id"));
+           holder.setView(holder.itemView);
            holder.display(pair.toString());
 
        } catch (JSONException e) {
@@ -82,6 +85,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
        private final TextView title;
        private final TextView date;
        private final ImageView preview;
+
+        public void setView(View view) {
+            this.view = view;
+        }
+
+        private View view;
 
         public void setCurrentItemId(String currentItemId) {
             this.currentItemId = currentItemId;
@@ -122,7 +131,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
                title.setText(currentPair.getString("title"));
                date.setText(currentPair.getString("returnDate").substring(0,10));
-               preview.setImageURI(Uri.parse(currentPair.getString("img")));
+               Picasso.with(view.getContext()).load(currentPair.getString("img")).into(preview);
 
 
 

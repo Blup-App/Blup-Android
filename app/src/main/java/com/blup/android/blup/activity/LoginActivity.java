@@ -37,9 +37,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.blup.android.blup.R;
-import com.blup.android.blup.Session;
+import com.blup.android.blup.custom.Session;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -226,7 +225,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             RequestQueue queue;
             queue = Volley.newRequestQueue(this);
 
-            JsonObjectRequest json = new JsonObjectRequest(Request.Method.GET, "http://192.168.1.22:8888/api/users", null,
+            JsonObjectRequest json = new JsonObjectRequest(Request.Method.GET, "http://192.168.1.20:8000/api/users", null,
                     new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {

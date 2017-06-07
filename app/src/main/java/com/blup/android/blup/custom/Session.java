@@ -1,4 +1,4 @@
-package com.blup.android.blup;
+package com.blup.android.blup.custom;
 import android.content.SharedPreferences;
 import android.content.Context;
 import android.preference.PreferenceManager;
