@@ -129,7 +129,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                JSONObject currentPair = new JSONObject(pair);
 
                title.setText(currentPair.getString("title"));
-               date.setText(currentPair.get("date").toString());
+               date.setText(currentPair.getString("returnDate").substring(0,10));
                preview.setImageURI(Uri.parse(currentPair.getString("img")));
 
 
