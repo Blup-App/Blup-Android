@@ -80,6 +80,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     private Session session;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,17 +88,16 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
 
         session = new Session(getApplicationContext());
+        // Force first connection
+        //session.setfirstco("");
 
-
-
-        if(session != null && !session.equals("null"))
+        if (session.getfirstco() != null && !session.getfirstco().isEmpty())
         {
             Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
             intent.putExtra("user_id", session.getuserid());
             startActivity(intent);
 
         }
-
 
 
         // Set up the login form.
@@ -226,7 +226,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             RequestQueue queue;
             queue = Volley.newRequestQueue(this);
 
-            JsonObjectRequest json = new JsonObjectRequest(Request.Method.GET, "http://10.31.1.60:8888/api/users", null,
+            JsonObjectRequest json = new JsonObjectRequest(Request.Method.GET, "http://192.168.1.22:8888/api/users", null,
                     new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
@@ -240,17 +240,21 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                                     String userpassword = user.getString("password");
                                     String username = user.getString("name");
                                     String userid = user.getString("id");
-                                    if(usermail.equalsIgnoreCase(email) && userpassword.equalsIgnoreCase(password))
-                                    {
+                                    if (usermail.equalsIgnoreCase(email) && userpassword.equalsIgnoreCase(password)) {
                                         Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                                         intent.putExtra("user_id", user.getString("id"));
-                                        
+
                                         session = new Session(getApplicationContext());
                                         session.setusername(username);
                                         session.setuserid(userid);
-                                        
+                                        session.setfirstco(" first co !!");
+
                                         startActivity(intent);
                                         return;
+                                    }
+                                    else {
+                                        Intent intent = new Intent(LoginActivity.this, LoginActivity.this.getClass());
+                                        startActivity(intent);
                                     }
 
                                 }
@@ -265,6 +269,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 }
             });
             queue.add(json);
+
 
             // mAuthTask.execute((Void) null);
 

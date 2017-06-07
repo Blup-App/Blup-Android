@@ -16,6 +16,15 @@ public class Session {
         prefs = PreferenceManager.getDefaultSharedPreferences(cntx);
     }
 
+    public void setfirstco(String firstco) {
+        prefs.edit().putString("firstco", firstco).commit();
+    }
+
+    public String getfirstco() {
+        String firstco = prefs.getString("firstco","");
+        return firstco;
+    }
+
     public void setusername(String username) {
         prefs.edit().putString("username", username).commit();
     }

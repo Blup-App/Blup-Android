@@ -50,7 +50,7 @@ public class HomeActivity extends AppCompatActivity {
         RequestQueue queue;
         queue = Volley.newRequestQueue(this);
 
-        JsonObjectRequest json = new JsonObjectRequest(Request.Method.GET, "http://10.31.1.60:8888/api/items", null,
+        JsonObjectRequest json = new JsonObjectRequest(Request.Method.GET, "http://192.168.1.22:8888/api/items", null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
