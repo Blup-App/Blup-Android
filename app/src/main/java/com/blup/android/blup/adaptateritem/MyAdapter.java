@@ -25,6 +25,7 @@ import org.json.JSONObject;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
@@ -71,7 +72,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
    @Override
    public int getItemCount() {
-       return characters.size();
+       return itemsList.size();
    }
 
    @Override
@@ -83,8 +84,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
    @Override
    public void onBindViewHolder(MyViewHolder holder, int position) {
-       Pair<String, String> pair = characters.get(position);
-       holder.display(pair);
+       Object pair = itemsList.get(position);
+
+       holder.display(pair.toString());
    }
 
 
@@ -93,7 +95,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
        private final TextView name;
        private final TextView description;
 
-       private Pair<String, String> currentPair;
+       private JSONObject currentPair;
 
        public MyViewHolder(final View itemView) {
            super(itemView);
@@ -104,18 +106,23 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
            itemView.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View view) {
-                   new AlertDialog.Builder(itemView.getContext())
-                           .setTitle(currentPair.first)
-                           .setMessage(currentPair.second)
-                           .show();
+               //    new AlertDialog.Builder(itemView.getContext())
+                 //          .setTitle(currentPair.first)
+                   //        .setMessage(currentPair.second)
+                     //      .show();
                }
            });
        }
 
-       public void display(Pair<String, String> pair) {
-           currentPair = pair;
-           name.setText(pair.first);
-           description.setText(pair.second);
+       public void display(String pair) {
+           try {
+               JSONObject currentPair = new JSONObject(pair);
+               description.setText(currentPair.getString("title"));
+
+
+           } catch (JSONException e) {
+               e.printStackTrace();
+           }
        }
    }
 
