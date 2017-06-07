@@ -78,10 +78,27 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private View mProgressView;
     private View mLoginFormView;
 
+    private Session session;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+
+        session = new Session(getApplicationContext());
+
+
+
+        if(session != null && !session.equals("null"))
+        {
+            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+            intent.putExtra("user_id", session.getuserid());
+            startActivity(intent);
+
+        }
+
+
 
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
@@ -160,7 +177,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * If there are form errors (invalid email, missing fields, etc.), the
      * errors are presented and no actual login attempt is made.
      */
-    private Session session;
+
     private void attemptLogin() {
         if (mAuthTask != null) {
             return;
