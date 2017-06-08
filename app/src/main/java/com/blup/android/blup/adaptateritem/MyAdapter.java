@@ -115,7 +115,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
            itemView.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View view) {
-                   Intent intent = new Intent(view.getContext(), ItemCreateActivity.class);
+                   Intent intent = new Intent(view.getContext(), ItemFocusActivity.class);
                    intent.putExtra("item_id", currentItemId);
                    view.getContext().startActivity(intent);
                }
