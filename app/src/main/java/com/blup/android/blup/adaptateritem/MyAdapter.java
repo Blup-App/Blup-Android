@@ -1,9 +1,7 @@
 package com.blup.android.blup.adaptateritem;
 
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +11,7 @@ import android.widget.TextView;
 
 
 import com.blup.android.blup.R;
-import com.blup.android.blup.activity.HomeActivity;
+import com.blup.android.blup.activity.ItemCreateActivity;
 import com.blup.android.blup.activity.ItemFocusActivity;
 import com.squareup.picasso.Picasso;
 
@@ -113,12 +111,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
            date = ((TextView) itemView.findViewById(R.id.date));
            preview = ((ImageView) itemView.findViewById(R.id.preview));
 
-           final Intent oldIntent = ((HomeActivity) itemView.getContext()).getIntent();
 
            itemView.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View view) {
-                   Intent intent = new Intent(view.getContext(), ItemFocusActivity.class);
+                   Intent intent = new Intent(view.getContext(), ItemCreateActivity.class);
                    intent.putExtra("item_id", currentItemId);
                    view.getContext().startActivity(intent);
                }

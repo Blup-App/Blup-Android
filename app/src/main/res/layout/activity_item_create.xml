@@ -1,5 +1,6 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
@@ -33,8 +34,8 @@
             android:orientation="vertical"
             android:gravity="center"
             >
-            
-            
+
+
             <ImageView
                 android:layout_width="31dp"
                 android:layout_height="25dp"
@@ -42,6 +43,7 @@
                 />
 
             <TextView
+                android:id="@+id/item_add_img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="prendre une photo"
@@ -64,11 +66,12 @@
         style="@style/sectionTitle" />
 
 
-    <TextView
+    <EditText
+        android:id="@+id/item_add_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/sectionBodyTextPadded"
-        android:text="Cahier Moleskine de James White"
+        tools:text="Cahier Moleskine de James White"
         android:textSize="16sp"
         />
 
@@ -109,22 +112,22 @@
 
 
 
-            <ImageView
-                android:id="@+id/item_focus_borrower_img"
-                android:layout_width="@dimen/itemCreateGridImgSize"
-                android:layout_height="@dimen/itemCreateGridImgSize"
-                android:background="@color/electricBlue"
-                style="@style/itemFocusGridItemImg" />
+                <ImageView
+                    android:id="@+id/item_focus_borrower_img"
+                    android:layout_width="@dimen/itemCreateGridImgSize"
+                    android:layout_height="@dimen/itemCreateGridImgSize"
+                    android:background="@color/electricBlue"
+                    style="@style/itemFocusGridItemImg" />
 
 
 
-            <TextView
-                android:id="@+id/item_focus_borrower_username"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/itemCreateGridItemUsername"
-                android:text="\@Nvyie"
-                android:layout_centerInParent="true" />
+                <TextView
+                    android:id="@+id/item_focus_borrower_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/itemCreateGridItemUsername"
+                    android:text="\@Nvyie"
+                    android:layout_centerInParent="true" />
 
             </LinearLayout>
 
@@ -159,24 +162,24 @@
                 >
 
 
-            <TextView
-                android:id="@+id/item_create_date_timeleft"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/itemCreateGridItemUsername"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:text="1 semaine"
-                android:layout_centerInParent="true" />
+                <TextView
+                    android:id="@+id/item_create_date_timeleft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/itemCreateGridItemUsername"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:text="1 semaine"
+                    android:layout_centerInParent="true" />
 
-            <TextView
-                android:id="@+id/item_create_date_period"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/itemCreateGridItemUsername"
-                android:textSize="11sp"
-                android:text="27/05 - 03/06"
-                android:layout_centerInParent="true" />
+                <TextView
+                    android:id="@+id/item_create_date_period"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/itemCreateGridItemUsername"
+                    android:textSize="11sp"
+                    android:text="27/05 - 03/06"
+                    android:layout_centerInParent="true" />
 
             </LinearLayout>
 
@@ -196,11 +199,12 @@
         />
 
 
-    <TextView
+    <EditText
+        android:id="@+id/item_add_note"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/sectionBodyTextPadded"
-        android:text="Cahier de James White en personne ! J’ai prêté à Margaret pour son prochain film mais il faudrait qu’elle me le rende la semaine prochaine pour mon prochain séminaire"
+        tools:text="Cahier de James White en personne ! J’ai prêté à Margaret pour son prochain film mais il faudrait qu’elle me le rende la semaine prochaine pour mon prochain séminaire"
         />
 
 
@@ -210,10 +214,11 @@
         android:layout_height="wrap_content">
 
         <Button
+            android:id="@+id/item_add_submit"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="30dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:text="Confirmer le Blüp avec Margaret "
             style="@style/itemCreateMainBtn"
             />
